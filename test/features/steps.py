@@ -53,6 +53,3 @@ def and_the_user_group1_is_removed(step, group1):
     world.response = world.app.get('/users/{}'.format(group1))
     assert_equals(world.response.status_code, int(404))
 
-@step(u'And the following message is returned:')
-def and_the_following_message_is_returned(step):
-    assert False, 'This step must be implemented'
