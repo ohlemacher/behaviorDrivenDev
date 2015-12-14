@@ -22,10 +22,8 @@ def given_some_users_are_in_the_system(step):
 
 @step(u'When I retrieve the user \'(.*)\'')
 def when_i_retrieve_the_user_group1(step, username):
-    '''
-    A capture group is used in the regular expression allowing us to
-    pass in variables to the step. This allows for the reuse of steps.
-    '''
+    ''' A capture group is used in the regular expression allowing us to pass
+    in variables to the step. This allows for the reuse of steps.'''
     world.response = world.app.get('/users/{}'.format(username))
 
 @step(u'Then I should get a \'(.*)\' response')
