@@ -1,10 +1,23 @@
-# A BI submitted user story
-Feature: Handle storing, retrieving and deleting customer details
-Scenario: Retrieve a customer's details
-Given some users are in the system
-When I retrieve the customer 'david01'
-Then I should get a '200' response
-And the following user details are returned:
-| name |
-| David |
+Feature: RESTful server
+    In order to play with BDD and REST
+    As beginners
+    We will handle storing, retrieving and deleting user details in a RESTful manner
+
+    Scenario: Retrieve a user's details
+        Given some users are in the system
+        When I retrieve the user 'david01'
+        Then I should get a '200' response
+        And the following user details are returned:
+            | name |
+            | David |
+    
+    Scenario: Delete an existing user's details
+        Given some users are in the system
+        When I delete the user 'david01'
+        Then I should get a '200' response
+        And the message 'User david01 deleted' is returned
+        And the user 'david01' is removed
+        Then when I retrieve the user 'david01'
+        Then I should get a '404' response
+        And the message 'User david01 not found' is returned
 
